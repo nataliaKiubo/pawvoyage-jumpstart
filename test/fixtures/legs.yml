@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  provider: MyString
+  vehicle: one
+  trip: one
+  origin_id: 1
+  destination_id: 1
+
+two:
+  description: MyText
+  provider: MyString
+  vehicle: two
+  trip: two
+  origin_id: 1
+  destination_id: 1
