@@ -1,0 +1,18 @@
+<% @trip.legs.each do |leg| %>
+<div class="grid grid-cols-2">
+  <div class="leg-info col-span-8">
+    <div class="flex flex-wrap">
+      <h3>Origin: <%= leg.origin_address.city.capitalize %><br>
+      Destination: <%= leg.destination_address.city.capitalize %></h3>
+    </div>
+    <div class="flex flex-wrap">
+      <p>Provider: <%= leg.provider %><br>
+      Means of Transportation: <%= leg.vehicle.name.capitalize %></p>
+    </div>
+    <div><p><strong>Description:</strong> <%= leg.description %></p></div>
+  </div>
+  <div class="leg-map col-span-4">
+    <p>This is where we will add the map</p>
+  </div>
+</div>
+<% end %>
