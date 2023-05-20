@@ -7,8 +7,8 @@ puts 'Creating addresses...'
 # Create addresses
 10.times do
   address = Address.create!(
-    city: Faker::Address.city,
-    country: Faker::Address.country,
+    city: Faker::Nation.capital_city,
+    country: Faker::Space.galaxy,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude
   )
@@ -17,14 +17,14 @@ end
 
 puts 'Creating vehicles...'
 # Create vehicles
-['car', 'train', 'plane'].each do |name|
+%w[car train plane].each do |name|
   vehicle = Vehicle.create!(name: name)
   puts "Vehicle created: #{vehicle.name}"
 end
 
 puts 'Creating pet types...'
 # Create pet types
-['dog', 'cat', 'hamster'].each do |name|
+%w[dog cat hamster].each do |name|
   pet_type = PetType.create!(name: name)
   puts "Pet type created: #{pet_type.name}"
 end
@@ -93,12 +93,12 @@ User.all.each do |user|
   3.times do
     trip = user.trips.create!
     puts "Trip created for user #{user.first_name}: #{trip.id}"
-    
+
     # Create legs for each trip
     3.times do
       leg = Leg.create!(
-        description: Faker::Lorem.sentence,
-        provider: Faker::Company.name,
+        description: Faker::Quotes::Chiquito.joke,
+        provider: Faker::Games::Pokemon.name,
         vehicle_id: Vehicle.all.sample.id,
         trip_id: trip.id,
         origin_id: Address.all.sample.id,
