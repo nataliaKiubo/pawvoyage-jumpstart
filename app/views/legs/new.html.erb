@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-4 offset-lg-4">
+    <h1 class="text-center">Create new leg</h1>
+
+    <%= form_for([@trip, @leg], url: new_trip_leg_path(@trip)) do |f| %>
+
+      <div class="mb-3">
+        <%= f.text_field :description, autofocus: false, class: 'form-control', placeholder: "Description" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :provider, autofocus: false, class: 'form-control', placeholder: "Provider" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :origin_address, autocomplete: "off", class: 'form-control', placeholder: 'Origin' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :destination_address, autocomplete: "off", class: 'form-control', placeholder: 'Destination' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.hidden_field :trip_id, value: @trip.id, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :vehicle, autocomplete: "off", class: 'form-control', placeholder: 'Vehicle' %>
+      </div>
+
+      <div class="mb-3 d-grid">
+        <%= f.submit "Add leg", class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
