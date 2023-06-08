@@ -1,18 +1,19 @@
+
+
 <% @trip.legs.each do |leg| %>
-<div class="grid grid-cols-2">
-  <div class="leg-info col-span-8">
-    <div class="flex flex-wrap">
-      <h3>Origin: <%= leg.origin_address.city.capitalize %><br>
-      Destination: <%= leg.destination_address.city.capitalize %></h3>
+  <div class="grid grid-cols-2">
+    <div class="leg-info">
+      <div class="flex">
+        <h3>Origin: <%= leg.origin.capitalize %><br>
+        Destination: <%= leg.destination.capitalize %></h3>
+      </div>
     </div>
-    <div class="flex flex-wrap">
-      <p>Provider: <%= leg.provider %><br>
-      Means of Transportation: <%= leg.vehicle.name.capitalize %></p>
+    <div class="leg-map">
+      <div data-controller="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-markers-value="<%= leg.markers.to_json %>"
+        id="map-<%= leg.id %>"
+        style="width: 100%; height: 300px"></div>
     </div>
-    <div><p><strong>Description:</strong> <%= leg.description %></p></div>
   </div>
-  <div class="leg-map col-span-4">
-    <p>This is where we will add the map</p>
-  </div>
-</div>
 <% end %>
