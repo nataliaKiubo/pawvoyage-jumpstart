@@ -1,0 +1,10 @@
+<h1>Create a new trip</h1>
+<%= simple_form_for @trip do |f| %>
+    <%= f.fields_for :legs do |leg_fields| %>
+    <%= leg_fields.input :description %>
+    <%= leg_fields.input :provider %>
+    <%= leg_fields.input :vehicle_id, collection: @vehicles %>
+
+  <% end %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

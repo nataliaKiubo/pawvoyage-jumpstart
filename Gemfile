@@ -46,6 +46,8 @@ gem "bootsnap", require: false
 # Geocoder to validated origin and destination within legs
 gem 'geocoder', '~> 1.8', '>= 1.8.1'
 
+
+gem 'simple_form'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -91,3 +93,5 @@ gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "responders", github: "heartcombo/responders", branch: "main"
 gem "faker"
+
+gem "tailwindcss-rails"
