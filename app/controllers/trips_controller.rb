@@ -26,8 +26,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+
+    @trip = Trip.new
     @trip.user = current_user
+    @trip.legs.build(trip_params[:legs_attributes]["0"])
 
     if @trip.save
       redirect_to trip_path(@trip)
@@ -39,20 +41,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(legs_attributes: [:description, :provider, :vehicle_id, :origin_address, :destination_address])
+    params.require(:trip).permit(legs_attributes: [:description, :provider, :vehicle_id, :origin, :destination])
   end
-
-  def leg_markers(leg)
-    [
-      {
-        lat: leg.origin_latitude,
-        lng: leg.origin_longitude
-      },
-      {
-        lat: leg.destination_latitude,
-        lng: leg.destination_longitude
-      }
-    ]
-  end
-
 end

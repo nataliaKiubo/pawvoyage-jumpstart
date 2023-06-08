@@ -4,6 +4,8 @@
     <%= leg_fields.input :description %>
     <%= leg_fields.input :provider %>
     <%= leg_fields.input :vehicle_id, collection: @vehicles %>
+    <%= leg_fields.input :origin %>
+    <%= leg_fields.input :destination %>
 
   <% end %>
   <%= f.button :submit, class: "btn btn-primary" %>
